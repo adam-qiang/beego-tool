@@ -1,3 +1,9 @@
+/**
+ * Created by goland.
+ * User: adam_wang
+ * Date: 2023-08-01 00:20:05
+ */
+
 package database
 
 import (
