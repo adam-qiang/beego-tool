@@ -15,7 +15,6 @@ beego框架适用工具
 go get -u github.com/adam-qiang/beego-tool
 ```
 
-
 ## 一、context
 
 适用于beego框架的上下文工具
@@ -83,3 +82,149 @@ go get -u github.com/adam-qiang/beego-tool
 ### 2、Valid
 
 公共的表单校验方法
+
+## 四、数据库
+
+适用于beego框架的数据库工具
+
+### 1、初始化数据库（在main中进行初始化）
+
+```golang
+import _ "github.com/adam-qiang/beego-tool/database"
+
+```
+
+### 2、配置
+
+```editorconfig
+[mysql]
+mysql_urls =
+mysql_port =
+mysql_user =
+mysql_pass =
+mysql_db =
+
+[redis]
+address =
+port =
+password =
+database =
+key =
+cache_database =
+cache_key =
+```
+
+- 注：redis配置中key和cache_key分别为redis普通操作前缀key和为redis缓存前缀key（可以不配置）
+
+### 3、数据库操作
+
+#### 1、MySQL
+
+操作遵循beego官方操作具体见beego官方文档
+
+#### 2、Redis
+
+使用github.com/redis/go-redis/v9作为redis操作库进行二次封装，同时只封装了经常用到的方法，如有其他需求可自行封装可随时issue
+
+支持以下操：
+
+##### 2.1、KEY
+
+- Del
+- Dump
+- Restore
+- Exists
+- Expire
+- ExpireAt
+- Keys
+- Move
+- Persist
+- PExpire
+- PExpireAt
+- TTL
+- PTTL
+- Rename
+- RenameNX
+- Type
+
+##### 2.2、STRING
+
+- Set
+- SetNX
+- Get
+- Incr
+- IncrBy
+- Decr
+- DecrBy
+- MSet
+- MSetNX
+- MGetMap
+- StrLen
+
+##### 2.3、HASH
+
+- HSet
+- HGet
+- HGetAll
+- HMSet
+- HMGetMap
+- HExists
+- HDel
+- HIncrBy
+- HKeys
+- HLen
+- LPop
+- LPush
+- BLPop
+- LPushX
+- RPop
+- RPush
+- RPushX
+- BRPop
+- RPopLPush
+- BRPopLPush
+- LIndex
+- LInsert
+- LLen
+- LRange
+- LRem
+- LSet
+
+##### 2.4、SET
+
+- SAdd
+- SCard
+- SDiff
+- SDiffStore
+- SInter
+- SInterStore
+- SIsMember
+- SMembers
+- SMove
+- SRem
+- SUnion
+- SUnionStore
+
+##### 2.5、SORTED SET
+
+- ZAdd
+- ZCard
+- ZCount
+- ZIncrBy
+- ZRange
+- ZRangeByScore
+- ZRank
+- ZRem
+- ZRemRangeByRank
+- ZRemRangeByScore
+- ZRevRange
+- ZRevRangeByLex
+- ZRevRangeByScore
+- ZRevRangeByScoreWithScores
+- ZRevRangeWithScores
+- ZRevRank
+- ZScore
+
+##### 3、Redis Cache
+
+操作遵循beego官方操作具体见beego官方文档
