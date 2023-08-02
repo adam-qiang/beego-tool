@@ -35,7 +35,6 @@ func init() {
 	mysqlPort, _ := beego.AppConfig.String("mysql::mysql_port")
 	mysqlDb, _ := beego.AppConfig.String("mysql::mysql_db")
 
-	println("配置：", mysqlUser, mysqlPass, mysqlUrls, mysqlPort, mysqlDb)
 	//注册 model
 	orm.RegisterModel(new(Mysql))
 	//注册默认数据库,必须注册一个别名为default的数据库，作为默认使用。("root:password@(127.0.0.1:3306)/databasename?charset=utf8")
