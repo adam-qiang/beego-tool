@@ -520,9 +520,9 @@ func HExists(key, field string) bool {
 
 // HDel 删除一个hash类型key的field
 // @param key string
-// @param fields []string
+// @param fields ...string
 // @return bool
-func HDel(key string, fields []string) bool {
+func HDel(key string, fields ...string) bool {
 	if redisKey != "" {
 		key = redisKey + ":" + key
 	}
@@ -802,9 +802,9 @@ func SCard(key string) int64 {
 }
 
 // SDiff 返回一个集合的全部成员，该集合是所有给定集合之间的差集
-// @param keys []string
+// @param keys ...string
 // @return []string
-func SDiff(keys []string) []string {
+func SDiff(keys ...string) []string {
 	if redisKey != "" {
 		for i := range keys {
 			keys[i] = redisKey + ":" + keys[i]
@@ -818,9 +818,9 @@ func SDiff(keys []string) []string {
 // 如果destination集合已经存在，则将其覆盖
 // destination可以是key本身
 // @param destination string
-// @param keys []string
+// @param keys ...string
 // @return bool
-func SDiffStore(destination string, keys []string) bool {
+func SDiffStore(destination string, keys ...string) bool {
 	if redisKey != "" {
 		for i := range keys {
 			keys[i] = redisKey + ":" + keys[i]
@@ -838,7 +838,7 @@ func SDiffStore(destination string, keys []string) bool {
 // SInter 返回一个集合的全部成员，该集合是所有给定集合的交集
 // @param keys []string
 // @return []string
-func SInter(keys []string) []string {
+func SInter(keys ...string) []string {
 	if redisKey != "" {
 		for i := range keys {
 			keys[i] = redisKey + ":" + keys[i]
@@ -852,9 +852,9 @@ func SInter(keys []string) []string {
 // 如果destination集合已经存在，则将其覆盖
 // destination可以是key本身
 // @param destination string
-// @param keys []string
+// @param keys ...string
 // @return bool
-func SInterStore(destination string, keys []string) bool {
+func SInterStore(destination string, keys ...string) bool {
 	if redisKey != "" {
 		for i := range keys {
 			keys[i] = redisKey + ":" + keys[i]
@@ -922,9 +922,9 @@ func SRem(key string, members []interface{}) bool {
 }
 
 // SUnion 返回一个集合的全部成员，该集合是所有给定集合的并集
-// @param keys []string
+// @param keys ...string
 // @return []string
-func SUnion(keys []string) []string {
+func SUnion(keys ...string) []string {
 	if redisKey != "" {
 		for i := range keys {
 			keys[i] = redisKey + ":" + keys[i]
@@ -936,9 +936,9 @@ func SUnion(keys []string) []string {
 
 // SUnionStore 类似于SUnion命令，但它将结果保存到destination集合
 // @param destination string
-// @param keys []string
+// @param keys ...string
 // @return bool
-func SUnionStore(destination string, keys []string) bool {
+func SUnionStore(destination string, keys ...string) bool {
 	if redisKey != "" {
 		for i := range keys {
 			keys[i] = redisKey + ":" + keys[i]
