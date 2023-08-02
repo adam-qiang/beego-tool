@@ -124,7 +124,7 @@ cache_key =
 
 #### 2、Redis
 
-使用github.com/redis/go-redis/v9作为redis操作库进行二次封装，同时只封装了经常用到的方法，如有其他需求可自行封装可随时issue
+使用github.com/redis/go-redis/v9作为redis操作库进行二次封装，同时只封装了经常用到的方法，如有其他需求可随时issue
 
 支持以下操：
 
